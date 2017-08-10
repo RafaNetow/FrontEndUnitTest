@@ -57,7 +57,17 @@
                 $scope.SubCalc();
                 expect($scope.result).toBe(20);
             });
-        })
+        });
+
+        describe("Multiplication two number (10*10) delimiter comma", function(){
+            it('Should return 100', function(){
+                $scope.input = "10,10";
+                $scope.MulCalc();
+                expect($scope.result).toBe(20);
+            });
+        });
+
+        
 
 
     });

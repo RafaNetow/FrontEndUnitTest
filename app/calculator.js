@@ -3,14 +3,16 @@
 app.controller('CalculatorController',function($scope){   
     $scope.result = 0;
 
-   // $scope.initFunction = function(){}
+  $scope.initFunction = function(){
+     var numbers = $scope.input.split(/[\s,]+/);       
+        if($scope.input === ""){
+          return numbers[0] = 0;
+        }
+     return numbers
+  }
     
     $scope.SumCalc = function(){
-        var numbers = $scope.input.split(/[\s,]+/);       
-        if($scope.input === ""){
-            $scope.result = 0;
-            return
-        }
+        numbers = $scope.initFunction()
         for(var i = 0; i < numbers.length; i++){
             var number = parseInt(numbers[i]);
             $scope.result += number;
@@ -18,14 +20,13 @@ app.controller('CalculatorController',function($scope){
     }
     
     $scope.SubCalc = function(){
-        var numbers = $scope.input.split(/[\s,]+/);  
-          if($scope.input === ""){
-            $scope.result = 0;
-            return
-        }
+         numbers = $scope.initFunction()
         for(var i = 0; i < numbers.length; i++){
             var number = parseInt(numbers[i]);
             $scope.result = i==0 ?number :$scope.result - number;
         }
+    }
+    $scope.MulCalc = function(){
+
     }
 });
